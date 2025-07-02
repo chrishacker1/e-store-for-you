@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -23,10 +24,10 @@ const Footer = () => {
           <div>
             <h4 className="text-base sm:text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Home</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Products</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Categories</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">About Us</a></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Home</Link></li>
+              <li><Link to="/products" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Products</Link></li>
+              <li><Link to="/categories" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Categories</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">About Us</Link></li>
             </ul>
           </div>
 
@@ -34,7 +35,7 @@ const Footer = () => {
           <div>
             <h4 className="text-base sm:text-lg font-semibold mb-4">Customer Service</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact Us</a></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact Us</Link></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">FAQ</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Shipping Info</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Returns</a></li>

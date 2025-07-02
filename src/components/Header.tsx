@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Search, ShoppingCart, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 import Cart from './Cart';
 
@@ -8,8 +9,20 @@ const Header = () => {
   const { state } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   const itemCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // Navigate to products page with search functionality
+      navigate('/products');
+      // Here you could implement actual search filtering
+      console.log('Searching for:', searchQuery);
+    }
+  };
 
   return (
     <>
@@ -18,28 +31,32 @@ const Header = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-gray-900">StoreHub</h1>
+              <Link to="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                StoreHub
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-gray-900 transition-colors">Home</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900 transition-colors">Products</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900 transition-colors">Categories</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900 transition-colors">About</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900 transition-colors">Contact</a>
+              <Link to="/" className="text-gray-700 hover:text-gray-900 transition-colors">Home</Link>
+              <Link to="/products" className="text-gray-700 hover:text-gray-900 transition-colors">Products</Link>
+              <Link to="/categories" className="text-gray-700 hover:text-gray-900 transition-colors">Categories</Link>
+              <Link to="/about" className="text-gray-700 hover:text-gray-900 transition-colors">About</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-gray-900 transition-colors">Contact</Link>
             </nav>
 
             {/* Search and Cart */}
             <div className="flex items-center space-x-4">
-              <div className="relative hidden sm:block">
+              <form onSubmit={handleSearch} className="relative hidden sm:block">
                 <input
                   type="text"
                   placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-              </div>
+              </form>
 
               <button
                 onClick={() => setIsCartOpen(true)}
@@ -67,20 +84,22 @@ const Header = () => {
           {isMobileMenuOpen && (
             <div className="md:hidden border-t border-gray-200 py-4">
               <nav className="flex flex-col space-y-2">
-                <a href="#" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Home</a>
-                <a href="#" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Products</a>
-                <a href="#" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Categories</a>
-                <a href="#" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">About</a>
-                <a href="#" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Contact</a>
+                <Link to="/" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Home</Link>
+                <Link to="/products" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Products</Link>
+                <Link to="/categories" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Categories</Link>
+                <Link to="/about" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">About</Link>
+                <Link to="/contact" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">Contact</Link>
               </nav>
-              <div className="mt-4 sm:hidden">
+              <form onSubmit={handleSearch} className="mt-4 sm:hidden relative">
                 <input
                   type="text"
                   placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-              </div>
+              </form>
             </div>
           )}
         </div>
