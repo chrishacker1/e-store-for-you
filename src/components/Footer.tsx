@@ -9,15 +9,26 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">StoreHub</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">WealthHub</h3>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
-              Your one-stop shop for amazing products at unbeatable prices. Quality guaranteed.
+              Professional investment management with cutting-edge technology. Building wealth for your future.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Facebook</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">LinkedIn</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Twitter</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Instagram</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Facebook</a>
             </div>
+          </div>
+
+          {/* Investment Services */}
+          <div>
+            <h4 className="text-base sm:text-lg font-semibold mb-4">Services</h4>
+            <ul className="space-y-2">
+              <li><Link to="/portfolio" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Portfolio Management</Link></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Retirement Planning</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Tax Optimization</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Wealth Management</a></li>
+            </ul>
           </div>
 
           {/* Quick Links */}
@@ -25,28 +36,17 @@ const Footer = () => {
             <h4 className="text-base sm:text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li><Link to="/" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Home</Link></li>
-              <li><Link to="/products" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Products</Link></li>
-              <li><Link to="/categories" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Categories</Link></li>
+              <li><Link to="/markets" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Markets</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">About Us</Link></li>
-            </ul>
-          </div>
-
-          {/* Customer Service */}
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4">Customer Service</h4>
-            <ul className="space-y-2">
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact Us</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">FAQ</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Shipping Info</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Returns</a></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact</Link></li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h4 className="text-base sm:text-lg font-semibold mb-4">Newsletter</h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-4">Market Updates</h4>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
-              Subscribe to get updates on new products and offers.
+              Subscribe to get weekly market insights and investment tips.
             </p>
             <div className="flex flex-col sm:flex-row">
               <input
@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
           <p className="text-gray-400 text-sm sm:text-base">
-            © 2024 StoreHub. All rights reserved.
+            © 2024 WealthHub. All rights reserved. Securities offered through WealthHub Financial LLC, member FINRA/SIPC.
           </p>
         </div>
       </div>
