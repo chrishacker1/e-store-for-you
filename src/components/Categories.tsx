@@ -26,24 +26,24 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-gray-50 py-8 sm:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Shop by Category
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg sm:text-xl text-gray-600 px-4">
             Find exactly what you're looking for
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {categories.map((category) => (
             <div
               key={category.name}
               className="relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-32 sm:h-40 lg:h-48 overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.name}
@@ -52,11 +52,11 @@ const Categories = () => {
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
               
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+              <div className="p-3 sm:p-4 lg:p-6 text-center">
+                <h3 className="text-sm sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2 group-hover:text-blue-600 transition-colors">
                   {category.name}
                 </h3>
-                <p className="text-gray-600">{category.count}</p>
+                <p className="text-gray-600 text-xs sm:text-sm lg:text-base">{category.count}</p>
               </div>
             </div>
           ))}
